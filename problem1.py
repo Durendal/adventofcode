@@ -1,7 +1,4 @@
-from operator import mul, add
-
-def sum(solutions):
-    return reduce(add, solutions)
+from operator import mul
 
 def prod(solutions):
     return reduce(mul, solutions, 1)

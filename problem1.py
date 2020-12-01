@@ -8,7 +8,7 @@ def prod(solutions):
 
 def check_values(solutions, *args):
   if sum(args) == 2020:
-    solutions.append(args)
+    solutions.extend(args)
 
 def print_results(solutions):
     print "%s = %d" % (" * ".join([str(x) for x in solutions]), prod(solutions))
@@ -27,10 +27,8 @@ def main():
             for k in range(j, len(input_data)):
                 check_values(sols[3], input_data[i], input_data[j], input_data[k])
 
-    for solution in sols[2]:
-        print_results(solution)
-    for solution in sols[3]:
-        print_results(solution)
+    for solution_set in sols.items():
+        print_results(solution_set[1])
 
 if __name__ == '__main__':
   main()

@@ -1,10 +1,10 @@
-import operator
+from operator import mul, add
 
 def sum(solutions):
-    return reduce(operator.add, solutions)
+    return reduce(add, solutions)
 
 def prod(solutions):
-    return reduce(operator.mul, solutions, 1)
+    return reduce(mul, solutions, 1)
 
 def check_values(solutions, *args):
   if sum(args) == 2020:

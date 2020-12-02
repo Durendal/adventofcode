@@ -4,8 +4,8 @@ def prod(solutions):
     return reduce(mul, solutions, 1)
 
 def check_values(solutions, *args):
-  if sum(args) == 2020:
-    solutions.extend(args)
+    if sum(args) == 2020:
+        solutions.extend(args)
 
 def print_results(solutions):
     print "%s = %d" % (" * ".join([str(x) for x in solutions]), prod(solutions))
@@ -28,4 +28,4 @@ def main():
         print_results(solution_set[1])
 
 if __name__ == '__main__':
-  main()
+    main()

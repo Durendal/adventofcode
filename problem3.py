@@ -10,9 +10,9 @@ def count_trees(map, mright, mdown):
     height = len(map)
     width = len(map[0])
     for i in range(height):
-      x, y = calculate_move(x, y, mright, mdown, width)
-      if y < height and map[y][x] == '#':
-          trees += 1
+        x, y = calculate_move(x, y, mright, mdown, width)
+        if y < height and map[y][x] == '#':
+            trees += 1
     return trees
 
 def main():

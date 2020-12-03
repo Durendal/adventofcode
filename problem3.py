@@ -1,3 +1,5 @@
+from operator import mul
+
 def calculate_move(x, y, right, down, width):
     x = (x + right) % width
     y += down
@@ -17,11 +19,10 @@ def main():
     map = [i.strip() for i in open('input3.txt', 'r').readlines()]
     inputs = [(3, 1), (1, 1), (5, 1), (7, 1), (1, 2)]
     product = 1
-    for input in inputs:
-        trees = count_trees(map, *input)
-        product *= trees
-        print("Right: %d Down: %d Trees: %d" % (input[0], input[1], trees))
-    print("Product: %d" % product)
+    trees = [count_trees(map, *input) for input in inputs]
+    for i in range(len(inputs)):
+        print("Right: %d Down: %d Trees: %d" % (inputs[i][0], inputs[i][1], trees[i]))
+    print("Product: %d" % reduce(mul, trees, 1))
 
 if __name__ == '__main__':
     main()

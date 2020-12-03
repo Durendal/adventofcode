@@ -18,7 +18,6 @@ def count_trees(map, mright, mdown):
 def main():
     map = [i.strip() for i in open('input3.txt', 'r').readlines()]
     inputs = [(3, 1), (1, 1), (5, 1), (7, 1), (1, 2)]
-    product = 1
     trees = [count_trees(map, *input) for input in inputs]
     for i in range(len(inputs)):
         print("Right: %d Down: %d Trees: %d" % (inputs[i][0], inputs[i][1], trees[i]))

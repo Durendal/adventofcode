@@ -5,11 +5,12 @@ def calculate_move(x, y, right, down, width):
 
 def count_trees(map, mright, mdown):
     x = y = trees = 0
-    for i in range(0, len(map)-1):
-      x, y = calculate_move(x, y, mright, mdown, len(map[0]))
-      if y < len(map) and map[y][x] == '#':
+    height = len(map)
+    width = len(map[0])
+    for i in range(height):
+      x, y = calculate_move(x, y, mright, mdown, width)
+      if y < height and map[y][x] == '#':
           trees += 1
-    print("Right: %d Down: %d Trees: %d" % (mright, mdown, trees))
     return trees
 
 def main():
@@ -17,8 +18,9 @@ def main():
     inputs = [(3, 1), (1, 1), (5, 1), (7, 1), (1, 2)]
     product = 1
     for input in inputs:
-        product *= count_trees(map, *input)
-
+        trees = count_trees(map, *input)
+        product *= trees
+        print("Right: %d Down: %d Trees: %d" % (input[0], input[1], trees))
     print("Product: %d" % product)
 
 if __name__ == '__main__':

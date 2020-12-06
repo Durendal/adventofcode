@@ -11,7 +11,7 @@ def traverse_row(seat, row=[0, 127]):
 def main():
     seats = [seat.strip("\r\n") for seat in open('input5.txt', 'r').readlines()]
     results = sorted([traverse_row(seat) for seat in seats])
-    for i in results:
+    for i in range(len(results)):
         if results[i+1] != results[i]+1:
             seat = results[i+1]-1
             break

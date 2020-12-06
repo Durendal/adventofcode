@@ -1,6 +1,5 @@
 def parse_group(group):
-    group = set(group.replace("\r\n", ""))
-    return len(group)
+    return len(set(group.replace("\r\n", "")))
 
 def main():
   data = [i for i in open('input6.txt').read().split("\r\n\r\n")]

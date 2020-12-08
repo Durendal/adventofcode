@@ -14,7 +14,7 @@ def check_bag(rules, bag_name):
         for bag, count in bags.items():
             new_val = check_bag(rules, bag)
             inner_bags.append(count * new_val + count if new_val != 1 else count * new_val)
-        return sum([bag for bag in inner_bags])
+        return sum(inner_bags)
 
 def main():
     rules = {k:v for (k,v) in [parse_rule(rule) for rule in open('input7.txt', 'r').readlines() if len(rule.split("contain")) > 1]}

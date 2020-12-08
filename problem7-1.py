@@ -1,8 +1,8 @@
 def parse_rule(rule):
-  key, value = rule.split("contain")
-  key = key.strip().replace(" bags", "").replace(" bag", "")
-  value = [' '.join(v.split(" ")[2:]).replace(".", "").replace(" bags", "").replace(" bag", "").strip() for v in value.split(",") if len(v) > 0]
-  return key, value
+    key, value = rule.split("contain")
+    key = key.strip().replace(" bags", "").replace(" bag", "")
+    value = [' '.join(v.split(" ")[2:]).replace(".", "").replace(" bags", "").replace(" bag", "").strip() for v in value.split(",") if len(v) > 0]
+    return key, value
 
 def check_rule(rules, string, complete=[]):
     new = [key for key,value in rules.items() if any([string in v for v in value])]

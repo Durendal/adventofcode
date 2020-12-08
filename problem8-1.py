@@ -15,7 +15,7 @@ def main():
         if instruction_pointer in history:
             break
         history.append(instruction_pointer)
-        print("Opcode: %s Value: %s IP: %d ACC: %d" % (inst['opcode'], inst['value'], instruction_pointer, accumulator))
+        #print("Opcode: %s Value: %s IP: %d ACC: %d" % (inst['opcode'], inst['value'], instruction_pointer, accumulator))
         if inst['opcode'] == 'acc':
             accumulator += inst['value']
             instruction_pointer += 1
@@ -23,6 +23,6 @@ def main():
             instruction_pointer += inst['value']
         elif inst['opcode'] == 'nop':
             instruction_pointer += 1
-
+    print(accumulator)
 if __name__ == '__main__':
     main()

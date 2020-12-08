@@ -6,7 +6,7 @@ def test_run(index, substitution):
     instructions = [i.strip() for i in open('input8.txt', 'r').readlines()]
     instructions[index] = substitution +" "+ instructions[index].split(" ")[1]
     instruction_pointer = accumulator = 0
-    
+
     for i in range(250):
         if instruction_pointer >= len(instructions):
             break
@@ -24,12 +24,13 @@ def test_run(index, substitution):
     return (accumulator, i, instruction_pointer)
 
 def main():
-    instructions = enumerate([i.strip() for i in open('input8.txt', 'r').readlines()])
+    input = [i.strip() for i in open('input8.txt', 'r').readlines()]
+    instructions = enumerate(input)
     jmp_instructions = [i for i, x in instructions if x.split(" ")[0] == 'jmp']
     nop_instructions = [i for i, x in instructions if x.split(" ")[0] == 'nop']
     results = [test_run(jmp, 'nop') for jmp in jmp_instructions]
     results.extend([test_run(nop, 'jmp') for nop in nop_instructions])
-    print([(result[0],result[2]) for result in results if result[1] != 250 and result[2] == 605])
+    print([(result[0],result[2]) for result in results if result[1] != 250 and result[2] == len(input)])
 
 if __name__ == '__main__':
     main()

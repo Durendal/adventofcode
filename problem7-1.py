@@ -8,9 +8,9 @@ def check_rule(rules, string, complete=[]):
     new = [key for key,value in rules.items() if any([string in v for v in value])]
     print("%s bag: \n|-%s" % (string, ("\n|-".join(new) if len(new) > 0 else 'END_OF_BAGS')))
     for bag in new:
-        complete.extend(check_rule(rules, bag, complete))
-    complete.extend(new)
-    return set(complete)
+        check_rule(rules, bag, complete)
+    complete.extend([i for i in new if i not in complete])
+    return complete
 
 def main():
     rules = {k:v for (k,v) in [parse_rule(rule) for rule in open('input7.txt', 'r').readlines() if len(rule.split("contain")) > 1]}

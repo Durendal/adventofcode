@@ -6,7 +6,7 @@ def test_run(index, substitution):
     instructions = [i.strip() for i in open('input8.txt', 'r').readlines()]
     instructions[index] = substitution +" "+ instructions[index].split(" ")[1]
     instruction_pointer = accumulator = 0
-    history = []
+    
     for i in range(250):
         if instruction_pointer >= len(instructions):
             break
